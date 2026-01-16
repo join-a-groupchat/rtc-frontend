@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
+import icon from "../assets/images/icon.png"
 
 function LoginPage() {
   const [loading, setLoading] = useState(false)
@@ -13,7 +14,7 @@ function LoginPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'github',
         options: {
-          redirectTo: 'rtc-frontend.pages.dev'
+          redirectTo: 'https://rtc-frontend.pages.dev'
         }
       })
 
@@ -31,9 +32,18 @@ function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title text-2xl justify-center mb-4">
-            Welcome to Chat App
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
+              <img src={icon} alt="App Icon" className="w-10 h-10" />
+            </div>
+          </div>
+
+          <h2 className="card-title text-2xl justify-center mb-1">
+            Real Time Chat
           </h2>
+          <p className="text-center mb-4">
+            Using µWebSockets.js, Redis, and Postgres.
+          </p>
 
           {error && (
             <div className="alert alert-error mb-4">
@@ -68,7 +78,10 @@ function LoginPage() {
 
           <div className="text-center mt-4">
             <p className="text-sm text-base-content/60">
-              Sign in with your GitHub account to start chatting
+              Sign in with your GitHub account to start chatting.
+            </p>
+            <p className="text-xs text-base-content/40 mt-2">
+              Created by Robin for a FontysICT project.
             </p>
           </div>
         </div>
