@@ -13,7 +13,7 @@ function LoginPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'github',
         options: {
-          redirectTo: 'https://jagc.hackershaven-eu.workers.dev'
+          redirectTo: 'https://rtc-frontend.hackershaven-eu.workers.dev'
         }
       })
 
