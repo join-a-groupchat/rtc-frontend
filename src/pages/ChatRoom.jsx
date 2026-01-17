@@ -132,8 +132,7 @@ function ChatRoom({ user, onLogout }) {
       return
     }
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-    const wsUrl = `${protocol}//jagc.web.id:9001`
+    const wsUrl = window.location.protocol === 'https:' ? 'wss://jagc.web.id' : 'ws://localhost:9001'
     
     const ws = new WebSocket(wsUrl)
     socketRef.current = ws
